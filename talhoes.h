@@ -1,19 +1,10 @@
-//Modulo de cabecalho responsavel por definir a estrutura Talhao e disponibilizar as funcoes de gerenciamento dos talhoes
+//Modulo de cabecalho responsavel por disponibilizar as funcoes da interface de terminal utilizadas no gerenciamento dos talhoes
 #ifndef TALHOES_H
 #define TALHOES_H
 
 #include <sqlite3.h>
 
-//Estrutura utilizada para representar os dados de um talhao
-struct Talhao {
-    int codigo;
-    char nome[50];
-    float area;
-    char plantacao[50];
-    char localizacao[100];
-};
-
-//Declara as funcoes utilizadas para cadastrar, listar, buscar, editar e excluir talhoes
+//Declara as funcoes utilizadas pela interface de terminal para cadastrar, listar, buscar, editar e excluir talhoes
 void cadastrarTalhao(sqlite3 *db);
 void listarTalhoes(sqlite3 *db);
 int buscarTalhao(sqlite3 *db, int codigo);

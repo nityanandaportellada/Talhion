@@ -1,53 +1,21 @@
-//Modulo de cabecalho responsavel por definir as estruturas de pragas e ocorrencias e disponibilizar as funcoes utilizadas pelo modulo
+//Modulo de cabecalho responsavel por disponibilizar as funcoes da interface de terminal utilizadas no gerenciamento de pragas e ocorrencias
 #ifndef PRAGAS_H
 #define PRAGAS_H
+
 #include <sqlite3.h>
 
-//estrutura da praga
-struct Praga {
-    int codigo;
-    char nome[50];
-    char descricao[200];
-    int nivelRisco;
-};
-
-//estrutura da ocorrência de praga
-struct OcorrenciaPraga {
-    int codigo;
-    int codigoPraga;
-    int codigoTalhao;
-    int nivelInfestacao;
-    float areaAfetada;
-    char data[20];
-};
-
-//Função para listar as pragas cadastradas
+//Declara as funcoes utilizadas pela interface de terminal para gerenciamento das pragas
 void listarPragas(sqlite3 *db);
-
-//Função para cadastrar uma praga
 void cadastrarPraga(sqlite3 *db);
-
-//Função que busca uma praga cadastrada
 int buscarPraga(sqlite3 *db, int codigo);
+void editarPraga(sqlite3 *db);
+void excluirPraga(sqlite3 *db);
 
-//Função para cadastrar uma ocorrência
+//Declara as funcoes utilizadas pela interface de terminal para gerenciamento das ocorrencias de pragas
 void cadastrarOcorrencia(sqlite3 *db);
-
-//Função para listar as ocorrências
 void listarOcorrencias(sqlite3 *db);
-
-//Função que busca uma ocorrência
 int buscarOcorrencia(sqlite3 *db, int codigo);
-
-//Edita uma ocorrência cadastrada
 void editarOcorrencia(sqlite3 *db);
-
-//Exclui uma ocorrência cadastrada
 void excluirOcorrencia(sqlite3 *db);
 
-//Edita uma praga cadastrada
-void editarPraga(sqlite3 *db);
-
-//exclui uma praga cadastrada
-void excluirPraga(sqlite3 *db);
 #endif

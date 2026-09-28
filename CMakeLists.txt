@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(
     Talhion
-    VERSION 0.2
+    VERSION 0.4
     LANGUAGES CXX
 )
 
@@ -27,20 +27,25 @@ add_executable(
     main.cpp
 
     banco.cpp
+    menu.cpp
+
     talhoes.cpp
     pragas.cpp
     clima.cpp
-    relatorios.cpp
-    menu.cpp
     risco.cpp
     alertas.cpp
     historico.cpp
+    relatorios.cpp
     visualizacao.cpp
 
     talhoes_service.cpp
     pragas_service.cpp
     clima_service.cpp
     risco_service.cpp
+
+    alertas_service.cpp
+    historico_service.cpp
+    relatorios_service.cpp
 )
 
 find_package(
@@ -69,10 +74,12 @@ if(
     OR
     NOT RAYLIB_LIBRARY
 )
+
     message(
         FATAL_ERROR
         "Raylib nao encontrada. Instale a Raylib antes de compilar o Talhion."
     )
+
 endif()
 
 target_include_directories(

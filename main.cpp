@@ -31,7 +31,7 @@ int main()
     }
 
     printf("\n====================================\n");
-    printf("             TALHION v0.1\n");
+    printf("             TALHION v0.2\n");
     printf("====================================\n");
 
     // Para inicializar o banco
